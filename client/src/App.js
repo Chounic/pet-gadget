@@ -12,7 +12,7 @@ function App() {
 
 
   return (
-    <div style={{ border: "red solid", width: "100%"}}>
+    <div style={{ border: "red solid", width: "80%"}}>
 
         <Navbar />
         <ProductsList />
