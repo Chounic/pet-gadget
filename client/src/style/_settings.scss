@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Cloudy Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Cloudy Regular'), url('../fonts/CLOUDY\ FONT.woff') format('woff');
+}
+
+.cloudyFont {
+
+    font-family: 'Cloudy Regular';
+
+}
+
+.circle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    overflow: hidden; 
+    border-radius: 50%;
+    height: 500px;
+    width: 500px;
+    margin: 0;
+    background: radial-gradient(circle at 100px 100px, #5cabff, #000);
+   }
