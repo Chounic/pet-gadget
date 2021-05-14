@@ -49,7 +49,7 @@ const ProductsList = () => {
 
             <h1>Il y a {productsData ? productsData.length : '0'} {productsData.length === 0 || productsData.length === 1 ? ' résultat' : ' résultats'} </h1>
 
-            <div className= "columns is-centered is-multiline" /*style={{ height: "1000px" }}*/>
+            <div className="columns is-centered is-multiline" /*style={{ height: "1000px" }}*/>
 
 
                 {

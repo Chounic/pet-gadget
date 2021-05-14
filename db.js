@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect('mongodb+srv://' + 'HakimChouioukh:Boulogne92i' + '@newcluster.dpw3j.mongodb.net/tajineProject', 
+mongoose.connect('mongodb+srv://' + process.env.DB_USER_PASS + '@newcluster.dpw3j.mongodb.net/tajineProject', 
 {
     useNewUrlParser: true,  
     useUnifiedTopology: true,  
