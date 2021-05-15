@@ -6,7 +6,8 @@ import basket from '../images/shopping_cart_icon.png';
 import { isEmpty } from '../utils/utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { addQuantity, removeFromCart, subtractQuantity } from '../actions/cart.actions';
-
+import {Animated} from "react-animated-css";
+import { Wave } from 'react-animated-text';
 
 
 const Navbar = () => {
@@ -105,52 +106,49 @@ const Navbar = () => {
     
     return (
 <>
-        <div className="columns has-background-warning-light box">
+        <div className="columns multiline has-background-warning-light box">
 
-            <div className="column mt-6 ml-6 pt-6">
-                
-                <div className="circle">
+            <div className="column mt-6 pt-6 has-background-danger">
+                <Animated animationIn="bounce" animationOut="fadeOutUp" isVisible={true}>
+                    <div className="circle">
 
-                    <div className="columns">
-                        <img src={logo} alt="logoImage" className="columns mb-0" style={{ width: "350px"}}/>
-                    </div>
+                        <div className="columns">
+                            <img src={logo} alt="logoImage" id="logoImage" /*style={{ width: "350px"}}*//>
+                        </div>
                     <div className="is-flex is-flex-direction-column is-align-items-center">
-                        <h1 className="cloudyFont title is-1 has-text-grey-light is-uppercase has-text-weight-bold">Pet gadget</h1>
-                        <h3 className="subtitle is-4 has-text-grey has-text-weight-normal">C'est très cher et y'a pas pire...</h3>
+                            <h1 className="cloudyFont title is-3 has-text-grey-light is-uppercase has-text-weight-bold">Pet gadget</h1>
+                            <h3 className="subtitle is-7 has-text-grey has-text-weight-normal">C'est très cher et y'a pas pire...</h3>
+                        </div>
+
                     </div>
-
-                </div>
-
+                </Animated>
             </div>
 
             <div className="cloudyFont">
 
-                <h1 className="title is-1 mt-6 pt-6">Accessoires pour animaux</h1>
+            
+                <h1 className="title is-2 mt-2 pt-6"><Wave text="accessoires pour animaux" speed="20" iterations="1" effect="stretch" effectChange={2.2} /></h1>
 
             </div>
 
-            <div className="column is-flex is-align-items-center ml-6 mt-6">
+        
+            <div className="column is-flex is-align-items-center ml-3 mt-6">
 
-                <img src={basket} alt="basket_icon" className="columns ml-6 mr-4 is-clickable" onClick={ totalQuantity !== 0 ? () => handleModal() : null } style={{ width: "200px"}}/>
+<Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>
+                <img src={basket} alt="basket_icon" className="columns mr-4 is-clickable" onClick={ totalQuantity !== 0 ? () => handleModal() : null } style={{ width: "200px"}}/></Animated>
                 { totalQuantity !== 0 && <h1 className="title is-1">{totalQuantity}</h1> }
 
             </div>
-
 
 
         </div>
 
 <div id='cartModal' className='modal'>
 <div className="modal-background" onClick={() => handleModal()}></div>
-<div className="modal-card" style={{ height: "700px", width: "800px", margin: "1rem"}}>
+<div className="modal-card" style={{ width: "300px", margin: "1rem"}}>
     <header className="modal-card-head is-justify-content-space-between">
         <div>
-            <p className="modal-card-title title is-5"></p>
-            <p className="subtitle is-6"></p>
-        </div>
-        <div className="ml-6">
-            <p className="modal-card-title title is-6">Modèle : </p>
-            <p className="subtitle is-7">Référence : </p>
+            <h1 className="modal-card-title title is-3">Panier</h1>
         </div>
 
         <button className="delete is-large" onClick={() => handleModal()} aria-label="close"></button>
@@ -171,40 +169,51 @@ const Navbar = () => {
 
 
 
-                    return (     
-                    <div key={item.id} className="message is-dark ">
-                        <div className="message-body is-flex is-justify-content-space-between">
-                            <div className="card-image has-background-warning">
-                                <img src={cartItem.picture} alt="product photo" style={{ width: "100px"}}/>
-                            </div>
-                            <div className="has-background-danger">
-                                <p>{cartItem.title}</p>
-                                <p>{cartItem.brand}<span>{cartItem.model}</span></p>
-                                <p>{cartItem.reference}</p>
-                            </div>
-                            <div>
+                    return (   
 
-                                <h3>QUANTITE</h3>
-                                <div  className="has-background-white is-flex is-justify-content-space-around is-align-items-center" style={{ height: '2rem'}}>
-                                    <FontAwesomeIcon icon="minus"  onClick={ item.quantity >= 2 ? () => dispatch(subtractQuantity(item.id)) : () => removeItem(item.id) } />
-                                    <span>{item.quantity}</span>
-                                    <FontAwesomeIcon icon="plus" onClick={ () => dispatch(addQuantity(item.id)) } />
+                    <div key={item.id} className="message is-dark ">
+                        <div className="message-body is-justify-content-space-between">
+                            <div className="is-flex">
+
+                                <div className="card-image has-background-warning">
+                                    <img src={cartItem.picture} alt="product photo" style={{ width: "50px"}}/>
+                                </div>
+                                <div className="has-background-danger ">
+                                    <p>{cartItem.title}</p>
+                                    <p>{cartItem.brand}<span>{cartItem.model}</span></p>
+                                    <p>Ref: {cartItem.reference}</p>
                                 </div>
 
                             </div>
-                            <div>
 
-                                <h3>SUPPRIMER</h3>
-                                <FontAwesomeIcon icon="trash-alt" onClick={ () => removeItem(item.id) } />
+                            <div className="is-flex is-justify-content-space-between">
 
-                            </div>
-                            <div>
+                                <div>
 
-                                <h3 className="subTotal" >{cartItem.price * item.quantity}</h3>
+                                    <h3>QUANTITE</h3>
+                                    <div  className="has-background-white is-flex is-justify-content-space-around is-align-items-center" style={{ height: '2rem'}}>
+                                        <FontAwesomeIcon icon="minus"  onClick={ item.quantity >= 2 ? () => dispatch(subtractQuantity(item.id)) : () => removeItem(item.id) } />
+                                        <span>{item.quantity}</span>
+                                        <FontAwesomeIcon icon="plus" onClick={ () => dispatch(addQuantity(item.id)) } />
+                                    </div>
+
+                                </div>
+                                <div /*className="has-background-warning is-flex is-flex-direction-column is-align-items-center is-justify-content-flex-center"*/>
+
+                                    <h3>SUPPRIMER</h3>
+                                    <FontAwesomeIcon className="is-block" style={{ margin: "6 auto 0"}} icon="trash-alt" onClick={ () => removeItem(item.id) } />
+
+                                </div>
+                                <div>
+
+                                    <h3 className="subTotal mt-4 is-family-code is-size-4 has-text-black-bis" >{cartItem.price * item.quantity}</h3>
+                                </div>
+
                             </div>
                             
                         </div>
                     </div>
+
                     )
                 }
             })
@@ -213,21 +222,14 @@ const Navbar = () => {
         }
 
 
-        <div className="message is-dark ">
-            <div className="message-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
-            </div>
-        </div>
-
-
     </section>
     <footer className="modal-card-foot">
-        <div className="has-background-warning">
+        <div /*className="has-background-warning"*/>
 
-            <p>Total : { totalPrice } </p>
+            <p className="title is-4 ">Total : <span className="has-text-danger-dark title is-3 ">{ totalPrice } </span></p>
         </div>
         
-        <button className="button">Valider la commande</button>
+        <button className="button ml-2">Valider la commande</button>
     </footer>
 </div>
 </div>

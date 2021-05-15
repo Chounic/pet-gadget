@@ -61,13 +61,13 @@ const ProductsList = () => {
                             {/* 
                             modalOn && <ProductModal modalOn={modalOn} productData={product} handleModal={closeModal}/> 
                             */}
-                            <div className="card column is-5 has-background-info-light modal-button" key={product._id} onClick={() => handleModal(product._id)} style={{ height: "500px", margin: "1rem"}}>
+                            <div className="card column is-5 has-background-info-light modal-button" key={product._id} onClick={() => handleModal(product._id)} style={{ margin: "1rem"}}>
                                 <div className="card-image">
 
-                                        <img src={product.picture} alt="product photo" style={{ width: "350px", height: "350px"}}/>
+                                        <img src={product.picture} alt="product photo" style={{ width: "250px", height: "250px"}}/>
 
                                 </div>
-                                <div className="card-content is-flex">
+                                <div className="card-content">
 
 
                                     <div className="media-content">
@@ -85,20 +85,20 @@ const ProductsList = () => {
 
                             <div id={product._id} className='modal'>
                                 <div className="modal-background" onClick={() => handleModal(product._id)}></div>
-                                <div className="modal-card" style={{ height: "700px", width: "800px", margin: "1rem"}}>
+                                <div className="modal-card" style={{ height: "700px", width: "300px", margin: "1rem"}}>
                                     <header className="modal-card-head is-justify-content-space-between">
                                         <div>
                                             <p className="modal-card-title title is-5">{product.title}</p>
                                             <p className="subtitle is-6">{product.brand}</p>
                                         </div>
-                                        <div className="ml-6">
-                                            <p className="modal-card-title title is-6">Modèle : {product.model}</p>
+                                        <div className="ml-4">
+                                            <p className="modal-card-title title is-7">Modèle : {product.model}</p>
                                             <p className="subtitle is-7">Référence : {product.reference}</p>
                                         </div>
 
                                         <button className="delete is-large" onClick={() => handleModal(product._id)} aria-label="close"></button>
                                     </header>
-                                    <section className="modal-card-body is-flex columns">
+                                    <section className="modal-card-body columns">
 
                                         <div className="card-image has-background-danger-dark column is-half" >
 
@@ -116,7 +116,7 @@ const ProductsList = () => {
                                         </div>
                                     </section>
                                     <footer className="modal-card-foot">
-                                        <div className="has-background-warning">
+                                        <div className="has-background-warning mr-5">
                                             <h3>QUANTITY</h3>
                                             <div  className="has-background-white is-flex is-justify-content-space-around is-align-items-center" style={{ height: '2rem'}}>
                                                 <FontAwesomeIcon icon="minus"  onClick={ quantity >= 2 ? () => setQuantity(quantity - 1) : null }/>

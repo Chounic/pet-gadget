@@ -19,8 +19,13 @@
     background: black;
     overflow: hidden; 
     border-radius: 50%;
-    height: 500px;
-    width: 500px;
+    height: 250px;
+    width: 250px;
     margin: 0;
     background: radial-gradient(circle at 100px 100px, #5cabff, #000);
    }
+
+#logoImage {
+
+    width: 120px;
+}
