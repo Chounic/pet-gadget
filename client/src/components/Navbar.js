@@ -106,10 +106,11 @@ const Navbar = () => {
     
     return (
 <>
-        <div className="columns multiline has-background-warning-light box">
 
-            <div className="column mt-6 pt-6 has-background-danger">
-                <Animated animationIn="bounce" animationOut="fadeOutUp" isVisible={true}>
+        <div className="columns multiline has-background-warning-light box">
+        
+            <div className="column mt-4 pt-6 has-background-danger is-flex is-justify-content-center ">
+                <Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>
                     <div className="circle">
 
                         <div className="columns">
@@ -123,19 +124,19 @@ const Navbar = () => {
                     </div>
                 </Animated>
             </div>
-
-            <div className="cloudyFont">
-
-            
-                <h1 className="title is-2 mt-2 pt-6"><Wave text="accessoires pour animaux" speed="20" iterations="1" effect="stretch" effectChange={2.2} /></h1>
-
+        
+            <div className="cloudyFont is-flex is-justify-content-center ml-3">
+                <Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>
+                <h1 className="title is-2 mt-5 pt-6"><span className="textTitle" >accessoires pour animaux</span></h1>
+                </Animated>
             </div>
 
         
-            <div className="column is-flex is-align-items-center ml-3 mt-6">
+            <div className="column is-flex is-align-items-center is-justify-content-center ml-3 mt-6" style={{ minWidth: "150px"}}>
 
-<Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>
-                <img src={basket} alt="basket_icon" className="columns mr-4 is-clickable" onClick={ totalQuantity !== 0 ? () => handleModal() : null } style={{ width: "200px"}}/></Animated>
+                <Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>
+                <img src={basket} alt="basket_icon" className="columns mr-4 is-clickable" onClick={ totalQuantity !== 0 ? () => handleModal() : null } style={{ width: "150px"}}/>
+                </Animated>
                 { totalQuantity !== 0 && <h1 className="title is-1">{totalQuantity}</h1> }
 
             </div>
@@ -143,9 +144,10 @@ const Navbar = () => {
 
         </div>
 
+
 <div id='cartModal' className='modal'>
 <div className="modal-background" onClick={() => handleModal()}></div>
-<div className="modal-card" style={{ width: "300px", margin: "1rem"}}>
+<div className="modal-card" style={{ margin: "1rem"}}>
     <header className="modal-card-head is-justify-content-space-between">
         <div>
             <h1 className="modal-card-title title is-3">Panier</h1>
@@ -172,10 +174,10 @@ const Navbar = () => {
                     return (   
 
                     <div key={item.id} className="message is-dark ">
-                        <div className="message-body is-justify-content-space-between">
+                        <div className="message-body is-flex-tablet is-justify-content-space-between">
                             <div className="is-flex">
 
-                                <div className="card-image has-background-warning">
+                                <div className="card-image has-background-warning is-flex is-align-items-center">
                                     <img src={cartItem.picture} alt="product photo" style={{ width: "50px"}}/>
                                 </div>
                                 <div className="has-background-danger ">
@@ -186,7 +188,7 @@ const Navbar = () => {
 
                             </div>
 
-                            <div className="is-flex is-justify-content-space-between">
+                            <div className="is-flex is-justify-content-flex-start has-background-success">
 
                                 <div>
 
@@ -198,7 +200,7 @@ const Navbar = () => {
                                     </div>
 
                                 </div>
-                                <div /*className="has-background-warning is-flex is-flex-direction-column is-align-items-center is-justify-content-flex-center"*/>
+                                <div className="mx-2"/*className="has-background-warning is-flex is-flex-direction-column is-align-items-center is-justify-content-flex-center"*/>
 
                                     <h3>SUPPRIMER</h3>
                                     <FontAwesomeIcon className="is-block" style={{ margin: "6 auto 0"}} icon="trash-alt" onClick={ () => removeItem(item.id) } />

@@ -29,3 +29,22 @@
 
     width: 120px;
 }
+
+.textTitle {
+
+    font-size: 2.5rem ;
+    /*overflow-wrap: break-word ;*/
+
+}
+
+
+
+
+@media screen and (min-width:1408px) {
+
+    .circle {
+
+        height: 300px;
+        width: 300px;
+    }
+}
