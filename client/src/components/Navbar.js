@@ -107,7 +107,7 @@ const Navbar = () => {
     return (
 <>
 
-        <div className="columns multiline has-background-warning-light box">
+        <div className="columns multiline has-background-warning-light box is-variable is-2">
         
             <div className="column mt-4 pt-6 has-background-danger is-flex is-justify-content-center ">
                 <Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>

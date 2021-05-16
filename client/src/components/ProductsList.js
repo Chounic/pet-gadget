@@ -49,7 +49,7 @@ const ProductsList = () => {
 
             <p className="title is-4">Il y a {productsData ? productsData.length : '0'} {productsData.length === 0 || productsData.length === 1 ? ' résultat' : ' résultats'} </p>
 
-            <div className="columns is-centered is-multiline is-variable is-7" /*style={{ height: "1000px" }}*/>
+            <div className="columns is-multiline is-variable is-7 has-background-success-dark" /*style={{ height: "1000px" }}*/>
 
 
                 {
@@ -62,7 +62,7 @@ const ProductsList = () => {
                             modalOn && <ProductModal modalOn={modalOn} productData={product} handleModal={closeModal}/> 
                             */}
 
-                            <div className="card column is-5 has-background-info-light modal-button px-1 is-clickable" key={product._id} onClick={() => handleModal(product._id)} style={{ margin: "1rem", maxWidth: "350px"}}>                            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
+                            <div className="card column is-5 has-background-info-light modal-button mx-0 px-3 is-clickable" key={product._id} onClick={() => handleModal(product._id)} style={{ margin: "1rem auto", maxWidth: "350px", }}>                            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
                                 <div className="card-image has-background-info-danger">
 
                                         <img src={product.picture} alt="product photo" style={{ width: "300px", height: "280px", display: "block", margin: "0 auto"}}/>
