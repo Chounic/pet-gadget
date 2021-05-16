@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { addQuantity, removeFromCart, subtractQuantity } from '../actions/cart.actions';
 import {Animated} from "react-animated-css";
 import { Wave } from 'react-animated-text';
+import Background from '../images/bgImage4.jpg';
 
 
 const Navbar = () => {
@@ -107,9 +108,9 @@ const Navbar = () => {
     return (
 <>
 
-        <div className="columns multiline has-background-warning-light box is-variable is-2">
+        <div className="columns multiline has-background-warning-light box is-variable is-2"  style={{ backgroundImage: "url(" + Background + ")" }}>
         
-            <div className="column mt-4 pt-6 has-background-danger is-flex is-justify-content-center ">
+            <div className="column mt-4 pt-6 is-flex is-justify-content-center ">
                 <Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>
                     <div className="circle">
 
@@ -208,7 +209,7 @@ const Navbar = () => {
                                 </div>
                                 <div>
 
-                                    <h3 className="subTotal mt-4 is-family-code is-size-4 has-text-black-bis" >{cartItem.price * item.quantity}</h3>
+                                    <h3 className="subTotal mt-4 is-family-code is-size-4 has-text-black-bis" >{cartItem.price * item.quantity} €</h3>
                                 </div>
 
                             </div>
@@ -228,7 +229,7 @@ const Navbar = () => {
     <footer className="modal-card-foot">
         <div /*className="has-background-warning"*/>
 
-            <p className="title is-4 ">Total : <span className="has-text-danger-dark title is-3 ">{ totalPrice } </span></p>
+            <p className="title is-4 ">Total : <span className="has-text-danger-dark title is-3 ">{ totalPrice } €</span></p>
         </div>
         
         <button className="button ml-2">Valider la commande</button>
