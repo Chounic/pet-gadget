@@ -60,9 +60,7 @@ const ProductsList = () => {
 
                             return (
                             <>
-                            {/* 
-                            modalOn && <ProductModal modalOn={modalOn} productData={product} handleModal={closeModal}/> 
-                            */}
+
 
                             <div className="card column is-5 has-background-info-light modal-button px-3 is-clickable" key={product._id} onClick={() => handleModal(product._id)} style={{ margin: "1rem auto", maxWidth: "400px" }}>                            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
                                 <div className="card-image has-background-info-danger">
@@ -102,14 +100,14 @@ const ProductsList = () => {
 
                                         <button className="delete is-large" onClick={() => handleModal(product._id)} aria-label="close"></button>
                                     </header>
-                                    <section className="modal-card-body columns">
+                                    <section className="modal-card-body columns has-background-warning-light">
 
-                                        <div className="card-image has-background-danger-dark column is-half is-flex is-justify-content-center" >
+                                        <div className="column is-half is-flex is-justify-content-center" >
 
                                             <img src={product.picture} alt="product photo" style={{ width: "300px", height: "300px"}}/>
 
                                         </div>
-                                        <div className="has-background-success-dark column">
+                                        <div className="column has-text-weight-semibold">
                                             
                                             <p>Description : {product.description}</p><br></br>
                                             <div>
@@ -120,9 +118,9 @@ const ProductsList = () => {
                                         </div>
                                     </section>
                                     <footer className="modal-card-foot is-flex is-justify-content-flex-end ">
-                                        <div className="has-background-warning">
+                                        <div className="">
                                             <h3>QUANTITY</h3>
-                                            <div  className="has-background-white is-flex is-justify-content-space-around is-align-items-center is-clickable" style={{ height: '2rem'}}>
+                                            <div  className="has-background-white is-flex is-justify-content-space-around is-align-items-center is-clickable" style={{ height: '2rem', borderRadius: '35px'}}>
                                                 <FontAwesomeIcon icon="minus"  onClick={ quantity >= 2 ? () => setQuantity(quantity - 1) : null }/>
                                                 <span>{quantity}</span>
                                                 <FontAwesomeIcon icon="plus" onClick={ () => setQuantity(quantity + 1)}/>
@@ -130,7 +128,7 @@ const ProductsList = () => {
 
                                         </div>
                                         
-                                        <button className="button  mx-4 " onClick={() => addProduct(product._id, quantity)}>Ajouter au panier</button>
+                                        <button className="button mx-4 mt-4 has-background-warning" onClick={() => addProduct(product._id, quantity)}>Ajouter au panier</button>
                                     </footer>
                                 </div>
                             </div>

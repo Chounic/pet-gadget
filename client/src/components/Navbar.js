@@ -118,8 +118,8 @@ const Navbar = () => {
                             <img src={logo} alt="logoImage" id="logoImage" /*style={{ width: "350px"}}*//>
                         </div>
                     <div className="is-flex is-flex-direction-column is-align-items-center">
-                            <h1 className="cloudyFont title is-3 has-text-grey-light is-uppercase has-text-weight-bold">Pet gadget</h1>
-                            <h3 className="subtitle is-7 has-text-grey has-text-weight-normal">C'est très cher et y'a pas pire...</h3>
+                            <h1 className="cloudyFont title is-3 is-size-2-fullhd has-text-grey-light is-uppercase has-text-weight-bold">Pet gadget</h1>
+                            <h3 className="subtitle is-7 is-size-6-fullhd has-text-grey has-text-weight-normal">C'est très cher et y'a pas pire...</h3>
                         </div>
 
                     </div>
@@ -128,7 +128,7 @@ const Navbar = () => {
         
             <div className="cloudyFont is-flex is-justify-content-center ml-3">
                 <Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>
-                <h1 className="title is-2 mt-5 pt-6"><span className="textTitle" >accessoires pour animaux</span></h1>
+                <h1 className="title is-2 is-size-1-fullhd mt-5 pt-6"><span className="textTitle" >accessoires pour animaux</span></h1>
                 </Animated>
             </div>
 
@@ -138,7 +138,7 @@ const Navbar = () => {
                 <Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>
                 <img src={basket} alt="basket_icon" className="columns mr-4 is-clickable" onClick={ totalQuantity !== 0 ? () => handleModal() : null } style={{ width: "150px"}}/>
                 </Animated>
-                { totalQuantity !== 0 && <h1 className="title is-1">{totalQuantity}</h1> }
+                { totalQuantity !== 0 && <h1 className="title is-1"><span className="totalQuantity" >{totalQuantity}</span></h1> }
 
             </div>
 
@@ -146,9 +146,9 @@ const Navbar = () => {
         </div>
 
 
-<div id='cartModal' className='modal'>
+<div id='cartModal' className='modal' style={{ }}>
 <div className="modal-background" onClick={() => handleModal()}></div>
-<div className="modal-card" style={{ margin: "1rem"}}>
+<div className="modal-card" id="cart" style={{ margin: "1rem"}}>
     <header className="modal-card-head is-justify-content-space-between">
         <div>
             <h1 className="modal-card-title title is-3">Panier</h1>
@@ -156,7 +156,7 @@ const Navbar = () => {
 
         <button className="delete is-large" onClick={() => handleModal()} aria-label="close"></button>
     </header>
-    <section className="modal-card-body ">
+    <section className="modal-card-body has-background-light">
 
         {
 
@@ -174,14 +174,14 @@ const Navbar = () => {
 
                     return (   
 
-                    <div key={item.id} className="message is-dark ">
-                        <div className="message-body is-flex-tablet is-justify-content-space-between">
-                            <div className="is-flex">
+                    <div key={item.id} className="message is-dark" >
+                        <div className="message-body has-background-grey-lighter columns is-flex-tablet is-justify-content-space-between">
+                            <div className="is-flex column" style={{ height: "150px"}}>
 
-                                <div className="card-image has-background-warning is-flex is-align-items-center">
+                                <div className="card-image is-flex is-align-items-center">
                                     <img src={cartItem.picture} alt="product photo" style={{ width: "50px"}}/>
                                 </div>
-                                <div className="has-background-danger ">
+                                <div className="ml-3">
                                     <p>{cartItem.title}</p>
                                     <p>{cartItem.brand}<span>{cartItem.model}</span></p>
                                     <p>Ref: {cartItem.reference}</p>
@@ -189,12 +189,12 @@ const Navbar = () => {
 
                             </div>
 
-                            <div className="is-flex is-justify-content-flex-start has-background-success">
+                            <div className="is-flex is-justify-content-flex-start is-5 column px-0">
 
                                 <div>
 
-                                    <h3>QUANTITE</h3>
-                                    <div  className="has-background-white is-flex is-justify-content-space-around is-align-items-center" style={{ height: '2rem'}}>
+                                    <h3 className="has-text-weight-semibold">QUANTITE</h3>
+                                    <div  className="has-background-white is-flex is-justify-content-space-around is-align-items-center" style={{ height: '2rem', borderRadius: '35px'}}>
                                         <FontAwesomeIcon icon="minus"  onClick={ item.quantity >= 2 ? () => dispatch(subtractQuantity(item.id)) : () => removeItem(item.id) } />
                                         <span>{item.quantity}</span>
                                         <FontAwesomeIcon icon="plus" onClick={ () => dispatch(addQuantity(item.id)) } />
@@ -203,13 +203,13 @@ const Navbar = () => {
                                 </div>
                                 <div className="mx-2"/*className="has-background-warning is-flex is-flex-direction-column is-align-items-center is-justify-content-flex-center"*/>
 
-                                    <h3>SUPPRIMER</h3>
-                                    <FontAwesomeIcon className="is-block" style={{ margin: "6 auto 0"}} icon="trash-alt" onClick={ () => removeItem(item.id) } />
+                                    <h3 className="has-text-weight-semibold">SUPPRIMER</h3>
+                                    <FontAwesomeIcon className="is-block" color="red" style={{ margin: "6 auto 0"}} icon="trash-alt" onClick={ () => removeItem(item.id) } />
 
                                 </div>
                                 <div>
 
-                                    <h3 className="subTotal mt-4 is-family-code is-size-4 has-text-black-bis" >{cartItem.price * item.quantity} €</h3>
+                                    <h3 className="subTotal mt-4 is-family-code is-size-4 has-text-black-bis " >{cartItem.price * item.quantity} €</h3>
                                 </div>
 
                             </div>
@@ -232,7 +232,7 @@ const Navbar = () => {
             <p className="title is-4 ">Total : <span className="has-text-danger-dark title is-3 ">{ totalPrice } €</span></p>
         </div>
         
-        <button className="button ml-2">Valider la commande</button>
+        <button className="button ml-2 has-background-warning has-text-weight-bold">Valider la commande</button>
     </footer>
 </div>
 </div>

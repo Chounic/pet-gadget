@@ -32,12 +32,25 @@
 
 .textTitle {
 
-    font-size: 2.5rem ;
-    /*overflow-wrap: break-word ;*/
+    color: #8c2c00 ;
 
 }
 
+.totalQuantity {
+    color: #d00000 ;
+}
 
+
+
+
+
+@media screen and (min-width:768px) {
+
+    #cart {
+        width: 700px ;
+    }
+
+}
 
 
 @media screen and (min-width:1408px) {
