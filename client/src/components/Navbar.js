@@ -128,7 +128,7 @@ const Navbar = () => {
         
             <div className="cloudyFont is-flex is-justify-content-center ml-3">
                 <Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>
-                <h1 className="title is-2 is-size-1-fullhd mt-5 pt-6"><span className="textTitle" >accessoires pour animaux</span></h1>
+                <h1 className="title is-2 is-size-1-tablet mt-6 pt-5"><span className="textTitle" >accessoires pour animaux</span></h1>
                 </Animated>
             </div>
 
@@ -148,7 +148,7 @@ const Navbar = () => {
 
 <div id='cartModal' className='modal' style={{ }}>
 <div className="modal-background" onClick={() => handleModal()}></div>
-<div className="modal-card" id="cart" style={{ margin: "1rem"}}>
+<div className="modal-card" id="cart" style={{ margin: "1rem", width: "97%", maxWidth: "900px"}}>
     <header className="modal-card-head is-justify-content-space-between">
         <div>
             <h1 className="modal-card-title title is-3">Panier</h1>

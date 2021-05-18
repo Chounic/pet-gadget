@@ -51,7 +51,7 @@ const ProductsList = () => {
 
             <p className="title is-4 has-text-grey-lighter">Il y a {productsData ? productsData.length : '0'} {productsData.length === 0 || productsData.length === 1 ? ' résultat' : ' résultats'} </p>
 
-            <div className="columns is-variable is-7 is-multiline pt-2" /*style={{ height: "1000px" }}*/ >
+            <div className="columns is-multiline pt-2" /*style={{ height: "1000px" }}*/ >
 
 
                 {
@@ -61,14 +61,14 @@ const ProductsList = () => {
                             return (
                             <>
 
-
-                            <div className="card column is-5 has-background-info-light modal-button px-3 is-clickable" key={product._id} onClick={() => handleModal(product._id)} style={{ margin: "1rem auto", maxWidth: "400px" }}>                            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
+                            <div className="column is-4 ">
+                            <div className="card has-background-info-light modal-button px-3 pt-3 is-clickable" key={product._id} onClick={() => handleModal(product._id)} /*style={{ margin: "1rem auto", maxWidth: "400px" }}*/>                            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
                                 <div className="card-image has-background-info-danger">
 
                                         <img src={product.picture} alt="product photo" style={{ width: "300px", height: "280px", display: "block", margin: "0 auto"}}/>
 
                                 </div>
-                                <div className="card-content px-1 mx-5">
+                                <div className="card-content px-1 mx-1">
 
 
                                     <div className="media-content" style={{ height: "120px" }}>
@@ -83,11 +83,11 @@ const ProductsList = () => {
                                     </div>
                                 </div>                             </Animated>
                             </div>
-
+                            </div>
 
                             <div id={product._id} className='modal'>
                                 <div className="modal-background" onClick={() => handleModal(product._id)}></div>
-                                <div className="modal-card" style={{ height: "700px", margin: "1rem"}}>
+                                <div className="modal-card" style={{ height: "700px", margin: "1rem", width: "95%", maxWidth: "700px"}}>
                                     <header className="modal-card-head is-justify-content-space-between">
                                         <div>
                                             <p className="modal-card-title title is-5">{product.title}</p>
