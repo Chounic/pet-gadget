@@ -194,7 +194,7 @@ const Navbar = () => {
                                 <div>
 
                                     <h3 className="has-text-weight-semibold">QUANTITE</h3>
-                                    <div  className="has-background-white is-flex is-justify-content-space-around is-align-items-center" style={{ height: '2rem', borderRadius: '35px'}}>
+                                    <div  className="has-background-white is-flex is-justify-content-space-around is-align-items-center is-clickable" style={{ height: '2rem', borderRadius: '35px'}}>
                                         <FontAwesomeIcon icon="minus"  onClick={ item.quantity >= 2 ? () => dispatch(subtractQuantity(item.id)) : () => removeItem(item.id) } />
                                         <span>{item.quantity}</span>
                                         <FontAwesomeIcon icon="plus" onClick={ () => dispatch(addQuantity(item.id)) } />
@@ -204,7 +204,7 @@ const Navbar = () => {
                                 <div className="mx-2"/*className="has-background-warning is-flex is-flex-direction-column is-align-items-center is-justify-content-flex-center"*/>
 
                                     <h3 className="has-text-weight-semibold">SUPPRIMER</h3>
-                                    <FontAwesomeIcon className="is-block" color="red" style={{ margin: "6 auto 0"}} icon="trash-alt" onClick={ () => removeItem(item.id) } />
+                                    <FontAwesomeIcon className="is-block is-clickable" color="red" style={{ margin: "6 auto 0"}} icon="trash-alt" onClick={ () => removeItem(item.id) } />
 
                                 </div>
                                 <div>
