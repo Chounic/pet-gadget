@@ -51,7 +51,7 @@ const ProductsList = () => {
 
             <p className="title is-4 has-text-grey-lighter">Il y a {productsData ? productsData.length : '0'} {productsData.length === 0 || productsData.length === 1 ? ' résultat' : ' résultats'} </p>
 
-            <div className="columns is-variable is-7 is-multiline pt-2" /*style={{ height: "1000px" }}*/>
+            <div className="columns is-variable is-7 is-multiline pt-2" /*style={{ height: "1000px"}}*/>
 
 
                 {
