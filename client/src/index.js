@@ -22,11 +22,11 @@ const expirationKey = "expirationKey";
 
 const persistConfig = { // configuration object for redux-persist
   key: 'root',
-  storage, // define which storage to use
+  storage, 
   transforms: [expireIn(expireTime, expirationKey, [])]
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer); // create a persisted reducer
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = createStore( 
   persistedReducer, composeWithDevTools(applyMiddleware(thunk, logger))
@@ -39,7 +39,7 @@ store.dispatch(getProducts());
 
 ReactDOM.render(
   <Provider store ={store}>
-    <PersistGate loading={null} persistor={persistor}> {/* null passed to loading, persistor is being used here*/}
+    <PersistGate loading={null} persistor={persistor}>
       <App />
     </PersistGate>
   </Provider>,

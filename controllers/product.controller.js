@@ -9,7 +9,6 @@ module.exports.getAllProducts = async (req, res) => {
 
 module.exports.addProduct = async (req, res) => {
 
-    console.log(req.body);
     const {title, brand, model, description, cellsOrBattery, weight, size, stock, price} = req.body;
 
     try {
@@ -49,7 +48,6 @@ module.exports.updateProduct = async (req, res) => {
         for(let prop in req.body) if(req.body[prop] || req.body[prop] === '') params[prop] = req.body[prop];
 
             
-        console.log(params);
 
         await ProductModel.findOneAndUpdate(
             {_id: req.params.id}, 
@@ -73,7 +71,7 @@ module.exports.updateProduct = async (req, res) => {
 
 
     } catch (err) {
-        console.log('pwobleme');
+ 
         //return res.status(400).json({ err });
     }
 
@@ -91,7 +89,7 @@ module.exports.deleteProduct = async (req, res) => {
             if (data.n !== 1) {
                 return res.status(400).json({ message: data });
             } else {
-                console.log(data);
+ 
                 res.status(200).json({ message: "Successfully deleted. " })
             }
         }

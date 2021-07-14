@@ -14,7 +14,7 @@ export default function cartReducer( state = initialState, action) {
             } else {
                 
                 const productIds = [...state].map( product => product.id);
-                console.log(productIds);
+
                 if ( !productIds.includes(action.payload.id) ){
                     
                     return [...state, action.payload] ;
@@ -22,7 +22,7 @@ export default function cartReducer( state = initialState, action) {
 
                     return [...state].map( product => {
                         if (product.id === action.payload.id) {
-                            console.log('test');
+
                              return {
                                  id: product.id, 
                                  quantity: product.quantity + action.payload.quantity
@@ -43,7 +43,7 @@ export default function cartReducer( state = initialState, action) {
 
             return [...state].map( product => {
                 if (product.id === action.payload) {
-                    console.log('test');
+
                      return {
                          id: product.id, 
                          quantity: product.quantity - 1
@@ -57,7 +57,7 @@ export default function cartReducer( state = initialState, action) {
 
             return [...state].map( product => {
                 if (product.id === action.payload) {
-                    console.log('test');
+
                      return {
                          id: product.id, 
                          quantity: product.quantity + 1
